@@ -14,13 +14,14 @@ var Queue = function() {
   someInstance.dequeue = function() {
     if (amount > 0) {
       var popItem = storage['0'];
-      delete storage['0'];
-
+      
       for (var i = 1; i < amount; i++) {
-        
+        storage[i-1] = storage[i];
       }
+      delete storage[amount - 1];
       amount--;
     }
+    return popItem;
   };
 
   someInstance.size = function() {
