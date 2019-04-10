@@ -4,14 +4,31 @@ var Queue = function() {
   var obj = {};
   obj.amount = 0;
   obj.size = queueMethods.size;
+  obj.dequeue = queueMethods.dequeue;
+  obj.enqueue = queueMethods.enqueue;
   return obj;
 };
 
 var queueMethods = {
 };
 
-queueMethods.enqueue = function(){}
-queueMethods.dequeue = function(){}
+queueMethods.enqueue = function(value){
+	this[this.amount] = value;
+	this.amount++
+}
+
+queueMethods.dequeue = function(){
+	if (this.amount > 0) {
+		var temp = this[0];
+		for (var i = 0; i < this.amount - 1; i ++){
+			this[i] = this[i+1];
+		}
+		delete this[this.amount - 1];
+		this.amount--;
+		return temp;
+	}
+}
+
 queueMethods.size = function(){
 	return this.amount;
 }
