@@ -19,12 +19,10 @@ var Stack = function() {
       return popitem;
     } else {
       return ;
-    }
-    
+    }  
   };
 
   someInstance.size = function() {
-    //index >= 0 ? return index : return 0;
     return index;
   };
 
