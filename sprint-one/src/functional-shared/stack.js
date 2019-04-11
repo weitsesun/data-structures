@@ -3,9 +3,7 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   var obj = {};
   obj.index = 0;
-  obj.size = stackMethods.size;
-  obj.pop = stackMethods.pop;
-  obj.push = stackMethods.push;
+  _.extend(obj, stackMethods);
   return obj;
 };
 

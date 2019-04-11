@@ -3,9 +3,7 @@ var Queue = function() {
   // but try not not reference your old code in writing the new style.
   var obj = {};
   obj.amount = 0;
-  obj.size = queueMethods.size;
-  obj.dequeue = queueMethods.dequeue;
-  obj.enqueue = queueMethods.enqueue;
+  _.extend(obj, queueMethods);
   return obj;
 };
 
