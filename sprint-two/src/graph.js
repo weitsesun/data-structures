@@ -6,14 +6,47 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  this.value = node;
+  this.siblings = [];
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
+  if (this.value === node) {
+    return true;
+  }
+  if (this.siblings.length > 0) {
+    for(var i = 0; i < this.siblings.length; i++) {
+      var sib = this.siblings[i];
+
+      if (sib.contains(node)) {
+        return true;
+      }
+    }
+    return false;
+  }
 };
 
 // Removes a node from the graph.
+//edgecase removing a node that doesnt exist
+//
+//input= value and no output
+//1. check the current node and if the value = target, then delete 
+//create a storage array pushing the nodes youve already checked
 Graph.prototype.removeNode = function(node) {
+  if (this.value === node) {
+    delete this;
+    // this.value = undefined;
+    // this.
+  }   
+  if (this.siblings.length > 0) {
+    for(var i = 0; i < this.siblings.length; i++) {
+      var sib = this.siblings[i];
+
+      sib.removeNode(node)
+    }
+  }
+
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -22,6 +55,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
+  
 };
 
 // Remove an edge between any two specified (by value) nodes.
