@@ -41,11 +41,25 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  for (var i = 0; i < this._storage[index].length; i++) {
-    if(this._storage[index][i][0] === k)
-      this._storage[index][i] = undefined;
+  // for (var i = 0; i < this._storage[index].length; i++) {
+  //   if(this._storage[index][i][0] === k)
+  //     this._storage[index][i] = undefined;
+  // }
+
+  //Wayne's version: decrease the size of the array while remove something from it
+  var subArray = this._storage[index];
+  if (subArray) {
+    var testCount = subArray.length;
+    var i = 0;
+    while(i < testCount) {
+      if(subArray[i][0] === k){
+        subArray = subArray.splice(i, 1);
+        i++;
+      }
+      i++;
+    }
   }
-};
+}; 
 
 
 
