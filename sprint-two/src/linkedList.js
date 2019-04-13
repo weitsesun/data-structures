@@ -8,7 +8,7 @@ var LinkedList = function() {
   list.head = null;
   list.tail = null;
   // list = {'head' : null, 'tail' : null}
-  list.addToTail = function(value) {
+  list.addToTail = function(value) { //Time: O(1)
     //if Linkedlist is empty -> insert to the head
     var newNode = Node(value);
     if (list.head === null) { 
@@ -20,7 +20,7 @@ var LinkedList = function() {
     }  
   };
 
-  list.removeHead = function() {
+  list.removeHead = function() { //Time: O(1)
     //1. removing what the list.head points to
     //2. change head to point to the next node
     //edge case: empty list 2. only one node, should update head and tail to null
@@ -40,7 +40,7 @@ var LinkedList = function() {
     } 
   };
 
-  list.contains = function(target) {
+  list.contains = function(target) { //Time: O(n)
     //iterate through the nodes and check if a node == the target
     //edgecase: empty list. will reutn false directly
     if (list.head === null) {
@@ -80,4 +80,3 @@ var Node = function(value) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
-// var a = new Node(1)
