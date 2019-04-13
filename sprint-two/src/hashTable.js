@@ -46,11 +46,12 @@ HashTable.prototype.remove = function(k) {
   //     this._storage[index][i] = undefined;
   // }
 
-  //Wayne's version: decrease the size of the array while remove something from it
+  //2nd version: decrease the size of the array while remove something from it
   var subArray = this._storage[index];
   if (subArray) {
     var testCount = subArray.length;
     var i = 0;
+
     while(i < testCount) {
       if(subArray[i][0] === k){
         subArray = subArray.splice(i, 1);
@@ -58,6 +59,7 @@ HashTable.prototype.remove = function(k) {
       }
       i++;
     }
+    
   }
 }; 
 
