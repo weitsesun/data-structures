@@ -24,25 +24,26 @@ bstMeths.insert = function(value) { //Time: O(log n)
     //if right is occupied -> recursion
     //else: insert treeNode
   //to the same thing to the left
-  var newNode = BinarySearchTree(value);
-  //right
-  if(value > this.value) {
-    if(this.right !== undefined) {
-      this.right.insert(value);
-    } else {
-      this.right = newNode;
+  if (typeof value === 'number') {
+    var newNode = BinarySearchTree(value);
+    //right
+    if(value > this.value) {
+      if(this.right !== undefined) {
+        this.right.insert(value);
+      } else {
+        this.right = newNode;
+      }
+    }
+    //left
+    if(value < this.value) {
+      if(this.left !== undefined) {
+        this.left.insert(value);
+      } else {
+        this.left = newNode;
+      }
     }
   }
-  //left
-  if(value < this.value) {
-    if(this.left !== undefined) {
-      this.left.insert(value);
-    } else {
-      this.left = newNode;
-    }
-  }
-  
-  };
+};
 
 bstMeths.contains = function(target) {//Time: O(log n)
   if (this.value === target) {
@@ -70,10 +71,6 @@ bstMeths.depthFirstLog = function(cb) { //Time: O(n)
   }
   
 };
-
-
-
-
 
 
 
