@@ -3,8 +3,7 @@
 //if list is empty, insert the node to the head
 
 var LinkedList = function() {
-  var list = {
-  };
+  var list = {};
   list.head = null;
   list.tail = null;
   // list = {'head' : null, 'tail' : null}

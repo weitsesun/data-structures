@@ -51,5 +51,8 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('should check if head and tail are pointing to null', function() {
+    expect(linkedList.head).to.equal(null);
+  });
   // add more tests here to test the functionality of linkedList
 });

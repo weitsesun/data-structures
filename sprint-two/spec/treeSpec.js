@@ -41,4 +41,9 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should be able to accept add a string as a value', function() {
+    tree.addChild('string');
+    expect(tree.children[0].value).to.equal('string');
+  });
+
 });

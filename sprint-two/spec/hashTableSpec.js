@@ -73,4 +73,11 @@ describe('hashTable', function() {
     hashTable.remove('Mr.');
     expect(hashTable._limit).to.equal(8);
   });
+
+  it('should not have duplicate keys', function() {
+    hashTable.insert('Sam', 'Apple');
+    hashTable.insert('Sam', 'Pear');
+    var index = window.getIndexBelowMaxForKey('Sam', 8);
+    expect(hashTable._storage[index].length).to.equal(1);
+  });
 });
